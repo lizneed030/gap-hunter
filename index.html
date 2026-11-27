@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141b23">
+  <title>裂隙猎手 · 点击射箭挑战</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">↟</span> 裂隙猎手 <span class="brand-en">GAP HUNTER</span></a><span class="prototype">浏览器试玩版 <i></i> 无需登录</span></header>
+  <main class="layout">
+    <section class="intro">
+      <p class="eyebrow">ONE SHOT. RIGHT MOMENT.</p>
+      <h1>别急。<br>等那一道<span>缝。</span></h1>
+      <p class="lead">弓在移动，机会很短。<br>点击放箭，穿过熔岩裂隙，<br>击败躲在上方的小怪物。</p>
+      <div class="instructions">
+        <div><b>01</b><p><strong>看准位置</strong><span>弓会自动左右移动</span></p></div>
+        <div><b>02</b><p><strong>点击放箭</strong><span>箭沿发射位置竖直飞出</span></p></div>
+        <div><b>03</b><p><strong>一箭封神</strong><span>首次命中，用箭越少越强</span></p></div>
+      </div>
+      <p class="keyboard-hint"><kbd>SPACE</kbd> 空格键也能射箭</p>
+    </section>
+    <section class="game-shell" aria-label="射箭游戏">
+      <div class="game-topbar"><span><i></i> 熔岩峡谷</span><div><button id="sound" class="icon-button" aria-pressed="false" title="打开音效">音效 关</button><button id="pause" class="icon-button" disabled>暂停</button></div></div>
+      <div class="stage" id="stage">
+        <canvas id="game" width="420" height="700" aria-label="下方移动的弓箭，上方两块熔岩挡板，缝隙上方有怪物"></canvas>
+        <div class="hud"><div class="shot-counter" aria-live="polite" aria-atomic="true"><span>已经射出</span><strong><span id="shotCount">0</span> <small>支箭</small></strong></div><div class="hud-right"><span>本次评级</span><strong id="rank">命中后揭晓</strong></div></div>
+        <p class="challenge-prompt">应该没有人能<br>一箭射中吧！</p>
+        <div class="ammo"><span id="shots">可无限尝试 · 射中即结算</span><div class="unlimited">∞ <span>无限箭矢</span></div></div>
+        <div id="notice" class="notice" role="status" aria-live="polite"></div>
+        <div id="overlay" class="overlay"><div class="overlay-card"><span id="overlayTag" class="overlay-tag">FEWER ARROWS · BETTER HUNTER</span><div class="crosshair">◎</div><h2 id="overlayTitle">这一箭，你能中吗？</h2><p id="overlayText">首次射中就结算，用箭越少越厉害。<br>可以无限尝试，射偏的箭会留在挡板上。</p><button id="start" class="primary">开始挑战 <span>↗</span></button><span id="overlayFoot" class="overlay-foot">不需要摄像头 · 无需联网</span></div></div>
+      </div>
+      <div class="game-footer"><button id="shoot" class="shoot" disabled><span>点击射箭</span><kbd>SPACE ↟</kbd></button><p id="footerHint">看准缝隙，再出手。</p></div>
+    </section>
+    <aside class="sidebar">
+      <section class="settings"><p class="eyebrow">CHALLENGE SETUP</p><h2>选择挑战</h2><div class="difficulty" role="group" aria-label="难度选择"><button data-difficulty="easy"><span>练习</span><small>窄缝 · 移动慢</small></button><button data-difficulty="normal" class="selected" aria-pressed="true"><span>标准</span><small>针尖时机</small></button><button data-difficulty="hard"><span>极限</span><small>极窄 · 移动快</small></button></div><p class="muted">开始后锁定难度，重开即可更换。</p></section>
+      <section class="record"><div><span>最佳纪录 · 最少用箭</span><span class="record-icon">✧</span></div><strong id="best">—</strong><p>射中时结算，包含命中的那支箭。<br>一箭命中，就是最高评级。</p></section>
+      <section class="rank-panel"><span>首次命中评级 · 用箭越少越强</span><ul id="rankList"></ul><p id="rankProgress">按首次命中用箭数评级，越少越强。</p></section>
+      <button id="restart" class="restart">↻ 重开 / 更换难度</button>
+    </aside>
+  </main>
+  <footer class="page-footer"><span>小小缝隙，大大考验。</span><span>CLICK · AIM · CONQUER</span></footer>
+</body>
+</html>
